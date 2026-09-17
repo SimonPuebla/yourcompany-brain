@@ -3,6 +3,7 @@
 
 from datetime import date
 from pathlib import Path
+import argparse
 import re
 import sys
 
@@ -41,8 +42,50 @@ def check_decision_ids():
     return failures
 
 
+def check_required_canon_fields():
+    failures = 0
+    for path in (ROOT / "canon").glob("*.yml"):
+        text = path.read_text(encoding="utf-8")
+        for field in ("owner:", "source:", "review_due:"):
+            if field not in text:
+                report(path, 1, f"falta {field}")
+                failures += 1
+    return failures
+
+
+def check_placeholders():
+    failures = 0
+    ignored_dirs = {"skills", "scripts", ".github"}
+    ignored_files = {"README.md", "PUBLISHING.md", "CONTRIBUTING.md"}
+    for path in ROOT.rglob("*"):
+        if path.is_dir() or ".git" in path.parts:
+            continue
+        if any(part in ignored_dirs for part in path.relative_to(ROOT).parts):
+            continue
+        if path.name in ignored_files:
+            continue
+        if path.suffix not in {".md", ".yml", ".yaml", ".json"}:
+            continue
+        for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            if "[COMPLETAR" in line:
+                report(path, line_number, "placeholder pendiente")
+                failures += 1
+    return failures
+
+
 def main():
-    return 1 if check_review_due() + check_decision_ids() else 0
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="falla si quedan placeholders o campos canonicos minimos sin declarar",
+    )
+    args = parser.parse_args()
+
+    failures = check_review_due() + check_decision_ids()
+    if args.strict:
+        failures += check_required_canon_fields() + check_placeholders()
+    return 1 if failures else 0
 
 
 if __name__ == "__main__":

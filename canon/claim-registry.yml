@@ -1,5 +1,7 @@
 reviewed_on: 2026-09-17
 review_due: 2026-12-16
+owner: "[COMPLETAR]"
+source: "[COMPLETAR: registro aprobado de claims]"
 claims: []
 
 # Agregar un claim sólo con id, status, audience, wording_es, wording_en, owner, source y review_due.
