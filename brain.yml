@@ -1,0 +1,11 @@
+name: "[COMPLETAR: nombre de la empresa] Brain"
+version: "0.1.0"
+released_on: 2026-09-17
+owner: "[COMPLETAR: owner del canon]"
+purpose: "[COMPLETAR: qué decisiones y trabajos sostiene este repositorio]"
+entrypoints:
+  start_here: START-HERE.md
+  agent_contract: AGENTS.md
+  live_sources: source.md
+  skills: skills/README.md
+update_rule: "Actualizar el canon sólo con fuente, owner y fecha de revisión."
