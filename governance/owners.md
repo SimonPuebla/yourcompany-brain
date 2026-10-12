@@ -8,3 +8,5 @@
 | Comercial y CRM | [COMPLETAR] | Cambia etapa, propuesta o excepción | Evidencia y contexto comercial |
 
 Los owners sin asignar se registran en `governance/decision-log.md`.
+
+Quién revisa cada cambio semanal se define en `governance/ciclo-semanal.md`. Un owner de esta tabla puede ser revisor de un ángulo, pero no se infiere: se asigna allá.

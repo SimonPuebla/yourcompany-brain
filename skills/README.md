@@ -6,3 +6,6 @@ El mismo paquete se instala como plugin en Claude y como repositorio en Codex. C
 - `company-router`: rutea pedidos al canon y al skill aplicable.
 - `company-discovery`: releva y califica oportunidades comerciales.
 - `company-proposal`: prepara propuestas usando sólo claims y fuentes aprobadas.
+- `company-daily-brief`: prepara el brief diario de reuniones con las fuentes conectadas de cada persona.
+
+Los skills hacen el trabajo; los agentes de `.claude/agents/` mantienen el canon. Antes de crear un skill nuevo, revisar si uno existente cubre el caso con una lectura más.

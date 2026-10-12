@@ -37,6 +37,8 @@ No conviertas una respuesta en canon si falta fuente, owner o alcance.
 7. `canon/offering.yml`
 8. `canon/claim-registry.yml`
 
+9. `governance/ciclo-semanal.md`
+
 Leer otros archivos solo cuando el setup toque esa area: `bd/`, `brand/`, `product/`, `regulatory/` o `corporate-structure/`.
 
 ## Entrevista de setup
@@ -246,6 +248,53 @@ Cada evaluacion debe incluir:
 - Respuesta esperada.
 - Condicion de bloqueo si aplica.
 
+### 10. Ciclo semanal
+
+Preguntar:
+
+- Que sistema es la verdad de cuentas y pipeline?
+- En que herramienta trabaja el equipo todos los dias? Ahi van la agenda semanal y la copia de lectura.
+- Quien revisa cada angulo: comercial, producto, legal o regulatorio, direccion?
+- Que fuentes vivas se barren para cada angulo?
+- Que dia corre la iteracion semanal?
+- Que cambios puede aplicar un agente sin aprobacion (clase A) y cuales nunca (clase B)?
+
+Actualizar:
+
+- `governance/ciclo-semanal.md`
+- `governance/owners.md` si aparece un owner nuevo.
+
+Crear en la herramienta de trabajo, con permiso explicito del owner:
+
+- La base `Agenda semanal`, con una fila por semana.
+- La pagina `Canon vigente`.
+
+Registrar sus referencias en `governance/ciclo-semanal.md`.
+
+Bloquear si:
+
+- Un angulo no tiene revisor.
+- Un revisor no tiene usuario en la herramienta donde se publica la agenda.
+- No hay un owner que mergee.
+
+### 11. Automatizacion
+
+Preguntar:
+
+- Donde va a correr el ciclo: tareas programadas, rutinas en la nube o a mano?
+- Hay un clon del repositorio fuera de carpetas sincronizadas con la nube, con credencial de push propia?
+- Quien quiere el brief diario? Cada persona lo programa en su cuenta.
+
+Actualizar:
+
+- Los prompts de `automation/` con la ruta del clon, el repositorio y los conectores.
+
+Correr cada tarea una vez a mano antes de dejarla programada, para aprobar los permisos de los conectores.
+
+Bloquear si:
+
+- La automatizacion necesitaria enviar mensajes o mergear sin una persona.
+
 ## Validacion final
 
 Antes de declarar listo el setup:
@@ -255,6 +304,8 @@ Antes de declarar listo el setup:
 3. Confirmar que cada claim externo tenga fuente, owner, status, audiencia y fecha de revision.
 4. Confirmar que `AGENTS.md` diga que hacer cuando falte evidencia.
 5. Confirmar que haya al menos una evaluacion de respuesta permitida y una de bloqueo.
+6. Confirmar que `governance/ciclo-semanal.md` tenga un revisor por angulo y las referencias de la agenda y de la copia de lectura.
+7. Correr a mano una primera iteracion del ciclo semanal y revisar la agenda que publica.
 
 ## Salida esperada
 
@@ -269,6 +320,7 @@ Al terminar, devolver:
 - Claims aprobados.
 - Claims condicionados o bloqueados.
 - Riesgos antes de usarlo en chats, automatizaciones o comunicaciones externas.
+- Estado del ciclo semanal: revisores asignados, agenda creada y tareas programadas.
 
 ## Condiciones de parada
 
