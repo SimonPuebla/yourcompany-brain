@@ -1,6 +1,6 @@
 {
   "name": "company-brain-template",
-  "version": "0.1.0",
-  "description": "Template para una base intelectual corporativa versionada.",
+  "version": "2.0.0",
+  "description": "Template para una base intelectual corporativa versionada, con ciclo semanal y agentes que la mantienen al día.",
   "author": { "name": "[COMPLETAR]" }
 }
